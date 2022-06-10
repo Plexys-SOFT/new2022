@@ -32,9 +32,9 @@ clear
 mkdir /root/restaurar > /dev/null 2>&1
 clear
 echo ""
-echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
+echo -e "                              \033[1;31mBy @Sr_Wallker\033[1;36m"
 echo ""
-echo -e "\033[1;33mRESTAURAR BANCO DE DADOS DO PAINEL GESTOR-SSH!\033[0m" 
+echo -e "\033[1;33mRESTAURAR BANCO DE DADOS DO PAINEL MultiHD-SSH!\033[0m" 
 echo ""
 echo -e "\n\033[1;33mÉ NECESSÁRIO O PAINEL INSTALADO E O\nARQUIVO (\033[1;32msshplus.sql\033[1;33m) NA PASTA (root/restaurar)!\033[0m\n"
 echo ""
@@ -62,7 +62,7 @@ pweb
 
 passdb=$(cut -d"'" -f2 /var/www/html/pages/system/pass.php)
 [[ $(mysql -h localhost -u root -p$passdb -e "show databases" | grep -wc sshplus) == '0' ]] && {
-	echo -e "\n\033[1;31mSEU PAINELWEB NÃO É COMPATÍVEL !\033[0m"
+	echo -e "\n\033[1;31mSEU PAINEL WEB NÃO É COMPATÍVEL !\033[0m"
 	echo ""
 sleep 3
 echo -e "\033[1;31mRETORNANDO...\033[0m"
@@ -73,7 +73,7 @@ pweb
 mysql -h localhost -u root -p$passdb -e "drop database sshplus"
 mysql -h localhost -u root -p$passdb -e 'CREATE DATABASE sshplus'
 mysql -h localhost -u root -p$passdb --default_character_set utf8 sshplus < /root/restaurar/sshplus.sql
-echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
+echo -e "                              \033[1;31mBy @Sr_Wallker\033[1;36m"
 echo ""
 echo -e "\n\033[1;32mDADOS RESTAURADO COM SUCESSO!\033[0m"
 echo ""
